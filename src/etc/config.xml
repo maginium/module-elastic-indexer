@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <!-- Default settings for Elastic Indexer and Magento Catalog search -->
+    <default>
+        <!-- Settings for Magento Catalog search -->
+        <catalog>
+            <search>
+                <!-- Minimum query length -->
+                <min_query_length>2</min_query_length>
+
+                <!-- Alias for indices -->
+                <opensearch_index_prefix>magento2</opensearch_index_prefix>
+
+                <!-- Pattern for index names -->
+                <indices_pattern>{{YYYYMMdd}}_{{HHmmss}}</indices_pattern>
+
+                <!-- Number of shards -->
+                <number_of_shards>1</number_of_shards>
+
+                <!-- Number of replicas -->
+                <number_of_replicas>0</number_of_replicas>
+
+                <!-- Batch indexing size -->
+                <batch_indexing_size>50</batch_indexing_size>
+            </search>
+        </catalog>
+    </default>
+</config>

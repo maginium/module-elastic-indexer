@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
+    <!-- Consumer for processing indexer-related messages from the 'elastic.indexer' with 'amqp' connection -->
+    <consumer
+        connection="amqp"
+        consumerInstance="Magento\Framework\MessageQueue\Consumer"
+        handler="Maginium\ElasticIndexer\Consumers\ElasticIndexerConsumer::process"
+        maxIdleTime="60"
+        maxMessages="100"
+        name="elastic.indexer"
+        onlySpawnWhenMessageAvailable="1"
+        queue="elastic.indexer"
+        sleep="5"
+    />
+</config>

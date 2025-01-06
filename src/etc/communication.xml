@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:communication/etc/communication.xsd"
+>
+    <!-- Defines a topic named "elastic.indexer" for asynchronous processing -->
+    <topic name="elastic.indexer" request="Magento\Indexer\Model\Indexer\DependencyDecorator">
+        <!-- Specifies a handler named "elastic.indexer.handler" of type "Maginium\ElasticIndexer\Consumers\ElasticIndexerConsumer" with a method named "process". -->
+        <handler method="process" name="elastic.indexer.handler" type="Maginium\ElasticIndexer\Consumers\ElasticIndexerConsumer" />
+    </topic>
+</config>

@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <!-- Define a new tab for Elasticsearch -->
+    <system>
+        <!-- Create a section for base settings related to Elasticsearch -->
+        <section id="catalog">
+            <!-- Group for indices settings -->
+            <group id="search">
+                <!-- Field for indices name pattern -->
+                <field id="indices_pattern" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="63" translate="label" type="text">
+                    <label>Indices Name Pattern</label>
+                </field>
+
+                <!-- Field for number of shards per index -->
+                <field id="number_of_shards" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="63" translate="label" type="text">
+                    <label>Number of Shards per Index</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+
+                <!-- Field for number of replicas per index -->
+                <field id="number_of_replicas" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="63" translate="label" type="text">
+                    <label>Number of Replicas per Index</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+
+                <!-- Field for number of replicas per index -->
+                <field id="batch_indexing_size" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="63" translate="label" type="text">
+                    <label>Batch Indexing Size</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

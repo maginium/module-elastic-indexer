@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+    <!-- Defines the Elastic Indexer Exchange and Queue, used for routing indexer-related messages. -->
+    <exchange connection="amqp" name="elastic.indexer" type="topic">
+        <!-- Binds the "elastic.indexer" topic to the elastic.indexer, setting up message routing. -->
+        <binding destination="elastic.indexer" destinationType="queue" id="elastic.indexer" topic="elastic.indexer">
+            <arguments>
+                <!-- Specifies the dead-letter exchange for indexer messages in case of failure or rejection. -->
+                <argument xsi:type="string" name="x-dead-letter-exchange">elastic.indexer.dlq</argument>
+                <!-- Specifies the dead-letter routing key for indexer messages, ensuring messages go to the dlq queue. -->
+                <argument xsi:type="string" name="x-dead-letter-routing-key">elastic.indexer.dlq</argument>
+            </arguments>
+        </binding>
+    </exchange>
+</config>

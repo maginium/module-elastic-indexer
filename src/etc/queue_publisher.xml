@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/publisher.xsd">
+    <!-- Publisher for publishing indexer-related messages to the 'elastic.indexer' topic via the 'elastic.indexer'. -->
+    <publisher topic="elastic.indexer">
+        <!-- Connection details for the event publisher, using the 'amqp' connection to the 'elastic.indexer'. -->
+        <connection exchange="elastic.indexer" name="amqp" />
+    </publisher>
+</config>
