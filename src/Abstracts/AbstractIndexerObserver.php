@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Maginium\ElasticIndexer\Abstracts;
 
 use Maginium\ElasticIndexer\Concerns\HasIndexer;
-use Maginium\Foundation\Abstracts\AbstractEntityObserver;
+use Maginium\Foundation\Abstracts\Observer\AbstractEntityObserver;
 
 /**
  * Abstract base class for Magento event observers.

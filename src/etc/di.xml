@@ -3,23 +3,15 @@
     <!-- Set preference for IndexerRegistry to use custom implementation -->
     <preference for="Magento\Framework\Indexer\IndexerRegistry" type="Maginium\ElasticIndexer\Models\IndexerRegistry" />
 
-    <!-- Set preference for SearchServiceInterface to use SearchService implementation -->
-    <preference for="Maginium\ElasticIndexer\Interfaces\Services\SearchServiceInterface" type="Maginium\ElasticIndexer\Services\SearchService" />
-
-    <!-- Override the DataMapperFactory class from Magento\Elasticsearch -->
+    <!-- Set preference for DataMapperFactory to use custom implementation -->
     <preference
         for="Magento\Elasticsearch\Model\Adapter\BatchDataMapper\DataMapperFactory"
-        type="Maginium\ElasticIndexer\Interceptors\Adapter\BatchDataMapper\DataMapperFactory"
+        type="Maginium\ElasticIndexer\Interceptors\Model\Adapter\BatchDataMapper\DataMapperFactory"
     />
 
-    <!-- Override the DataMapperResolver class from Magento\Elasticsearch -->
-    <preference
-        for="Magento\Elasticsearch\Model\Adapter\BatchDataMapper\DataMapperResolver"
-        type="Maginium\ElasticIndexer\Interceptors\Adapter\BatchDataMapper\DataMapperResolver"
-    />
+    <!-- Set preference for DataMapperResolver to use custom implementation -->
+    <preference for="Magento\Elasticsearch\Model\Adapter\BatchDataMapper\DataMapperResolver" type="Maginium\ElasticIndexer\Datasource\Resolver" />
 
-    <!-- Interceptors the DataMapperResolver  -->
-    <type name="Magento\Elasticsearch\Model\Adapter\BatchDataMapper\DataMapperResolver">
-        <plugin name="model_type_to_data_mapper" type="Maginium\ElasticIndexer\Interceptors\EntityTypeToDataMapper" />
-    </type>
+    <!-- Set preference for SearchServiceInterface to use SearchService implementation -->
+    <preference for="Maginium\ElasticIndexer\Interfaces\Services\SearchServiceInterface" type="Maginium\ElasticIndexer\Services\SearchService" />
 </config>

@@ -48,6 +48,7 @@ class ElasticIndexerConsumer extends AbstractConsumer
             // Retrieve the message data from the queue.
             $data = $this->getData();
 
+            dd($data);
             // Extract the indexer instance from the message data.
             $indexerId = $data->getIndexerId();
 

@@ -13,7 +13,7 @@ use Maginium\Framework\Support\Facade;
  *
  * Facade for interacting with the Registry service, which manages values in the registry.
  *
- * @method static IndexerInterface get(string $indexerId) Retrieve a value by its key, loading lazily if not already registered.
+ * @method static mixed get(string $indexerId) Retrieve a value by its key, loading lazily if not already registered.
  * @method static void register(string $key, mixed $value, bool $graceful = false) Register a value by key, with graceful option to handle duplicates.
  * @method static bool isRegistered(string $key) Check if a value is registered under a given key.
  * @method static void unregister(string $key) Unregister a value by key, removing it from the registry.
