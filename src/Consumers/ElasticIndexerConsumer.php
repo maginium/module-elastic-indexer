@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Maginium\ElasticIndexer\Consumers;
 
-use Exception;
 use Magento\Indexer\Model\Indexer\DependencyDecorator as IndexerInterface;
 use Maginium\ElasticIndexer\Enums\ReindexActions;
 use Maginium\ElasticIndexer\Facades\IndexerRegistry;
 use Maginium\ElasticIndexer\Interfaces\Data\ElasticIndexInterface;
+use Maginium\Foundation\Exceptions\Exception;
 use Maginium\Framework\MessageQueue\Abstracts\AbstractConsumer;
 use Maginium\Framework\Support\Facades\Log;
 

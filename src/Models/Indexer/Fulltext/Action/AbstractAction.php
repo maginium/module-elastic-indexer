@@ -100,35 +100,12 @@ class AbstractAction
                 $primaryKey = $this->getModel()->getKeyName();
 
                 // Get the lastEntityId using the new method.
-                $lastEntityId = $this->getLastEntityId($modelData, $primaryKey);
-
-                // Ensure the model data includes an 'id' key (fallback to primaryKey or static::ID if needed).
-                $modelData[static::ID] ??= (int)$modelData[$primaryKey];
-
-                // Unset the original primary key after extracting the ID.
-                unset($modelData[$primaryKey]);
+                // $lastEntityId = $this->getLastEntityId($modelData, $primaryKey);
+                $lastEntityId = (int)$modelData[$primaryKey];
 
                 // Yield the current model's data, allowing incremental processing.
                 yield $lastEntityId => $modelData;
             }
         } while (! empty($models)); // Continue fetching until no more models are available.
-    }
-
-    /**
-     * Get the last entity ID from the model data.
-     *
-     * Attempts to retrieve the ID from either the primary key or static::ID if the primary key is missing.
-     *
-     * @param array $modelData The model data.
-     * @param string $primaryKey The name of the primary key.
-     *
-     * @return int The last entity ID.
-     */
-    private function getLastEntityId(array $modelData, string $primaryKey): int
-    {
-        // Try to get the lastEntityId from the primary key or fall back to static::ID.
-        return isset($modelData[$primaryKey])
-            ? (int)$modelData[$primaryKey]
-            : (int)($modelData[static::ID] ?? 0);
     }
 }
